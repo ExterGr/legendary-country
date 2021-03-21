@@ -2,13 +2,14 @@ const router = require('express').Router();
 const axios = require('axios').default;
 const { Country, Activity } = require('../db.js')
 const bodyParser = require("body-parser");
+const { Op } = require("sequelize");
 
 router.use(bodyParser.json())
 
 router.get('/', function(req, res) {
     if(req.query.name){
         res.status(200);
-        axios.get(`https://restcountries.eu/rest/v2/name/${req.query.name}`)
+        return axios.get(`https://restcountries.eu/rest/v2/name/${req.query.name}`)
         .then(function (response) {
             res.send({
                 id: response.data[0].alpha3Code,
@@ -26,7 +27,7 @@ router.get('/', function(req, res) {
             console.log(error);
         })
     } else{ //Aca tengo que solicitar todos los paises que tenga en mi base de datos find / create db. Debo guardarlos todos y traer solos los 10 primeros
-        axios.get(`https://restcountries.eu/rest/v2/all`)
+        return axios.get(`https://restcountries.eu/rest/v2/all`)
         .then(function(response){
             Country.count()
             //Me fijo el largo, si son iguales que no haga el recorrido con los 250 elementos.
@@ -52,16 +53,46 @@ router.get('/', function(req, res) {
             })
         })
         .then(function(response){
-            Country.findAll(
-                {
-                    limit: 10,
-                    order: [['name', 'ASC']],
-                    attributes: ['name', 'flag', 'continent']
-                }
-                )
-            .then(countries => {
-                res.json(countries)
-            });
+            console.log(req.query.continent)
+            console.log(req.query.activity)
+            if(req.query.activity){
+                return Country.findAll(
+                    {
+                        offset: req.query.number || 0,
+                        limit: 10,
+                        order: [[req.query.column || 'name', req.query.order || 'ASC']],
+                        attributes: ['name', 'flag', 'continent', 'id'],
+                        where: {
+                            continent: req.query.continent
+                        },
+                        include: [{
+                            model: Activity,
+                            where: {
+                                name: req.query.activity
+                            }
+                        }]
+                    }
+                    )
+                .then(countries => {
+                    return res.json(countries)
+                });
+
+            } else {
+                return Country.findAll(
+                    {
+                        offset: req.query.number || 0,
+                        limit: 10,
+                        order: [[req.query.column || 'name', req.query.order || 'ASC']],
+                        attributes: ['name', 'flag', 'continent', 'id'],
+                        where: {
+                            continent: req.query.continent
+                        }
+                    }
+                    )
+                .then(countries => {
+                    return res.json(countries)
+                });
+            }
         })
         .catch(function(err){
             res.json({err: 'Hubo un error, fijate en la consola que onda jajaj'})
@@ -79,15 +110,18 @@ router.get('/:idCountry', async function(req, res) {
     }
     //Aca arranco
     try{
-        const theCountrie = await Country.findByPk(req.params.idCountry.toUpperCase(), {
-            include: Activity 
+        const theCountrie = await Country.findAll( {
+            where:{
+                id:req.params.idCountry.toUpperCase()
+            } ,
+            include:{model: Activity }
         })
-        if(!theCountrie) res.send({err: 'Eso no existe'})
-        res.send(theCountrie);
+        //console.log(theCountrie[0].activities) //Me trae solo 1 actividad
+        if(!theCountrie)return res.send({err: 'Ese ID no se encuentra en la base de datos'}).status(404);
+        res.json(theCountrie);
 
     } catch(err){
-        console.log(err);
-        res.send({err: 'Nada por aca'})
+        res.send({err: 'Hubo un error'})
     }
 });
 
@@ -124,4 +158,8 @@ Country.findAll({
 .catch(function (error) {
     res.json({err: 'No se encontro el ID solicitado'})
   console.log(error);
+}) */
+
+/* const theCountrie = await Country.findByPk(req.params.idCountry.toUpperCase(), {
+    include: Activity 
 }) */

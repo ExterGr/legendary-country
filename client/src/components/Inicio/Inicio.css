@@ -1,0 +1,51 @@
+.landing-title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.initial-button{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #663399;
+    color: #ffffff;
+    text-decoration: none;
+    position: absolute;
+    border-radius: 12px;
+    padding: 10px;
+    width: 200px;
+    bottom: 130px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.initial-button:hover{
+    color: #ffffff;
+    background-color: #7744aa;
+}
+
+.initial-button:active{
+    color: #eeeeee;
+    background-color: #441177;
+    bottom: 128px;
+}
+
+.landing-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 350px;
+}
+
+.landing-sign {
+    display: flex;
+    position: absolute;
+    right: 9px; 
+    bottom: 2px;
+    color: #808080;
+    user-select: none;
+}

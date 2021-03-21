@@ -1,0 +1,39 @@
+.country-container{
+    padding:5px;
+    margin: 5px;
+    position: relative;
+    float: left;
+    width: 30%;
+    height: auto;
+    
+
+}
+
+.country-item{
+    display: flexbox;
+    text-align: center;
+    border: steelblue solid 9px;
+    border-radius: 12px;
+    padding-bottom: 10px;
+}
+
+.country-home-image{
+    width: 250px;
+    height: 250px;
+    background: #E6E7ED;
+    -moz-border-radius: 125px;
+    -webkit-border-radius: 125px;
+    background-position:50% 50%;
+    background-repeat:no-repeat; 
+    
+}
+
+.details-link {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #663399;
+    border-radius: 8px;
+    padding: 2px;
+    display: flexbox;
+    
+}
