@@ -32,14 +32,14 @@ export function getCountryName (name){ //Trae el detalle de la pelicula
   };
 }
 
-export function postActivity (id){ //Trae el detalle de la pelicula
+export function postActivity (name, difficulty, duration, season, countriesList){ //Trae el detalle de la pelicula
   return async function(dispatch) {
       var json = await axios.post("http://localhost:3001/activity", {
-        name: id.name,
-        difficulty: id.difficulty,
-        duration: id.duration,
-        season: id.season,
-        id: id.id
+        name,
+        difficulty,
+        duration,
+        season,
+        countriesList
       })
       
       return dispatch({ type: "POST_ACTIVITY", payload: json.data });

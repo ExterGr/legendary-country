@@ -1,22 +1,35 @@
 const router = require('express').Router();
-const { Activity, Country } = require('../db.js')
+const { Activity, Country } = require('../db.js');
+const { Op } = require("sequelize");
 
 router.post('/', async function(req, res) {
+    console.log(req.body);
 
-    const country = await Country.findByPk(
-         req.body.country //Me traigo el que coincida con las 3 letras Find by pk
+    let {name, difficulty, duration, season, countriesList } = req.body
+
+    if (!Array.isArray(countriesList)) {
+        countriesList = [countriesList];
+    }
+
+    const country = await Country.findAll({
+        where: {
+            id: {
+                [Op.in]: countriesList
+            }
+        }
         
-    )
+    })
     const activity = await Activity.findOrCreate({
         where:{
-            name: req.body.name,
-            difficulty: req.body.difficulty,
-            duration: req.body.duration,
-            season: req.body.season
+            name: name.activityName,
+            difficulty: difficulty,
+            duration: duration.durationNumber,
+            season: season
     }
 })
 
-    country.setActivities(activity); //Aca se rompe
+
+    await activity.setActivities(country); //Aca se rompe
 
     res.sendStatus(200);
 
