@@ -43,6 +43,42 @@ const [activity, setActivity] = useState('');
         setActivity({ activityName: event.target.value});
     }
 
+    /* function handleNumber(event){
+        let auxPrev = document.getElementById('previous-button')
+        let auxNext = document.getElementById('next-button')
+        if(number < 0){ 
+            auxPrev.disabled = true
+            setNumber(0);
+        };
+        if(number > 250){
+             auxNext.disabled = true;
+             setNumber(250);
+            }
+        if(number >= 0 || number <= 250){
+            auxPrev.disabled = false;
+            auxNext.disabled = false;
+            setNumber(event)
+        }
+        
+    } */
+
+    function handleButtons (){
+        let auxPrev = document.getElementById('previous-button')
+        let auxNext = document.getElementById('next-button')
+        let myNumber = number;
+        if(myNumber <= 0 && auxPrev){ 
+            auxPrev.disabled = true;
+        }
+        else if(myNumber >= 240 && auxNext){
+            auxNext.disabled = true;
+        } else if( auxNext || auxPrev) {
+            auxNext.disabled = false;
+            auxPrev.disabled = false;
+        }
+    }
+
+    
+
     function handleSubmit(event) {
      event.preventDefault();
     }
@@ -109,11 +145,12 @@ const [activity, setActivity] = useState('');
                     />
                 <button type="submit" onClick={() => props.getCountries(number, column, order, continent, activity.activityName)}>FILTER</button>
             </form>      
-            <button onClick={()=>{ setNumber(number - 10); console.log(number)}}>Previous</button>
-            <button onClick={()=>{ setNumber(number + 10); console.log(number)}}>Next</button>
+            <button id='previous-button' onClick={()=>{ setNumber(number - 10); handleButtons(); console.log(number - 10)}}>Previous</button>
+            <button id='next-button' onClick={()=>{ setNumber(number + 10); handleButtons(); console.log(number +10)}}>Next</button>
+            {handleButtons()}
             <div>
                 {
-                props.countries?.map(el => {
+                number >=0 && number <= 250 && props.countries && props.countries.map(el => {
                     return (
                         <div key={el.name}>
                             <Country
@@ -126,11 +163,14 @@ const [activity, setActivity] = useState('');
                         </div>
                     )
                 })}
+                
                 {loader && <h3>Cargando . . .</h3>}
             </div>
         </div>
         )
 }
+
+
 
 function mapStateToProps(state){ //Lo uso despues como this.props.movies
     return{
