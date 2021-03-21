@@ -101,9 +101,12 @@ const countryList = []
                         props.getCountryName(countryName)
                         .then(country => {
                             if(!country.payload.id) return alert('No se encontro el pais solicitado')
+                            if(countriesList.includes(country.payload.id)) return alert('Flaco, ya agregaste ese pais, no hinches los huevos')
                             setCountriesList([...countriesList, country.payload.id])
                         })
-                        .then(e => console.log(countriesList))}}
+                        .then(e => {
+                            console.log(countriesList)
+                        })}}
                         >ADD COUNTRY</button>
                 </form>
                 <ul>

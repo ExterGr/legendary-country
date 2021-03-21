@@ -107,9 +107,10 @@ const [activity, setActivity] = useState('');
                     placeholder="Activity name"
                     onChange={(e) => handleActivity(e)}
                     />
-                <button type="submit" onClick={() => props.getCountries(number, column, order, continent, activity.activityName)}>FILTRAR</button>
+                <button type="submit" onClick={() => props.getCountries(number, column, order, continent, activity.activityName)}>FILTER</button>
             </form>      
             <button onClick={()=>{ setNumber(number - 10); console.log(number)}}>Previous</button>
+            <button onClick={()=>{ setNumber(number + 10); console.log(number)}}>Next</button>
             <div>
                 {
                 props.countries?.map(el => {
@@ -126,7 +127,6 @@ const [activity, setActivity] = useState('');
                     )
                 })}
                 {loader && <h3>Cargando . . .</h3>}
-            <button onClick={()=>{ setNumber(number + 10); console.log(number)}}>Next</button>
             </div>
         </div>
         )

@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const { Activity, Country } = require('../db.js');
+const { Activity, Country, Country_activity } = require('../db.js');
 const { Op } = require("sequelize");
+const cors = require("cors");
+
+router.use(cors());
 
 router.post('/', async function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
 
     let {name, difficulty, duration, season, countriesList } = req.body
 
@@ -11,7 +14,7 @@ router.post('/', async function(req, res) {
         countriesList = [countriesList];
     }
 
-    const country = await Country.findAll({
+    const addCountry = await Country.findAll({
         where: {
             id: {
                 [Op.in]: countriesList
@@ -19,7 +22,7 @@ router.post('/', async function(req, res) {
         }
         
     })
-    const activity = await Activity.findOrCreate({
+    const addActivity = await Activity.findOrCreate({
         where:{
             name: name.activityName,
             difficulty: difficulty,
@@ -28,10 +31,21 @@ router.post('/', async function(req, res) {
     }
 })
 
+    const findActivity = await Activity.findOne({
+        where:{
+            name: name.activityName,
+            difficulty: difficulty,
+            duration: duration.durationNumber,
+            season: season
+    }
+    })
 
-    await activity.setActivities(country); //Aca se rompe
+//console.log(country)
 
-    res.sendStatus(200);
+
+    await findActivity.setCountries(addCountry); //Aca se rompe
+
+    return res.sendStatus(200);
 
 });
 

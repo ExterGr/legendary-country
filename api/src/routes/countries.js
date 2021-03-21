@@ -53,8 +53,14 @@ router.get('/', function(req, res) {
             })
         })
         .then(function(response){
-            console.log(req.query.continent)
-            console.log(req.query.activity)
+            //console.log(req.query.continent)
+            //console.log(req.query.activity)
+            let {continent} = req.query
+
+            if(continent.includes(',')){
+                continent = continent.split(',');
+            }
+            //console.log(continent)
             if(req.query.activity){
                 return Country.findAll(
                     {
@@ -63,7 +69,7 @@ router.get('/', function(req, res) {
                         order: [[req.query.column || 'name', req.query.order || 'ASC']],
                         attributes: ['name', 'flag', 'continent', 'id'],
                         where: {
-                            continent: req.query.continent
+                            continent: continent
                         },
                         include: [{
                             model: Activity,
@@ -78,6 +84,11 @@ router.get('/', function(req, res) {
                 });
 
             } else {
+                let {continent} = req.query
+
+                if(continent.includes(',')){
+                    continent = continent.split(',');
+                }
                 return Country.findAll(
                     {
                         offset: req.query.number || 0,
@@ -85,7 +96,7 @@ router.get('/', function(req, res) {
                         order: [[req.query.column || 'name', req.query.order || 'ASC']],
                         attributes: ['name', 'flag', 'continent', 'id'],
                         where: {
-                            continent: req.query.continent
+                            continent: continent
                         }
                     }
                     )
