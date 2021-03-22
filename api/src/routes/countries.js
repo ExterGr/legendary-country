@@ -61,6 +61,8 @@ router.get('/', function(req, res) {
                 continent = continent.split(',');
             }
             //console.log(continent)
+            //console.log(req.query.activity)
+            //Error: Si busco una actividad, no puedo paginar hasta darle al boton filtrar nuevamente . . .
             if(req.query.activity){
                 return Country.findAll(
                     {

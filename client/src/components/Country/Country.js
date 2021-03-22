@@ -11,16 +11,17 @@ export default function Card(props) {
   return (
     <div className="country-container" >
       <div className="country-item" >
-        <h5>{props.name}</h5>
+        <h5 className="country-name-details">{props.name}</h5>
         <img src={`${props.flag}`} alt="" className="country-home-image" />
-        <div>{props.continent}</div>
-        
-        <Link to={{
-                pathname: `/home/${props.id}`, 
-                query:{id: props.id}
-              }}>
-            <a className="details-link">Detalles</a>
-        </Link>
+        <div className="details-continent">{props.continent}</div>
+        <div className="details-link">
+          <Link to={{
+                  pathname: `/home/${props.id}`, 
+                  query:{id: props.id}
+                }} style={{ textDecoration: 'none' }}>
+              <div className="details-link-text">Details</div>
+          </Link>
+        </div>
       </div>
     </div>
   );

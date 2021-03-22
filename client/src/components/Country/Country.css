@@ -18,22 +18,49 @@
 }
 
 .country-home-image{
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     background: #E6E7ED;
-    -moz-border-radius: 125px;
-    -webkit-border-radius: 125px;
+    -moz-border-radius: 9999px;
+    -webkit-border-radius: 9999px;
     background-position:50% 50%;
     background-repeat:no-repeat; 
+    border: 2px solid black;
     
 }
 
-.details-link {
+.details-link{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.details-link-text {
     text-decoration: none;
     color: #ffffff;
     background-color: #663399;
     border-radius: 8px;
     padding: 2px;
-    display: flexbox;
+    width: 150px;
     
+}
+
+.details-link-text:hover{
+    background-color: #7847aa;
+}
+
+.details-link-text:active{
+    background-color: #51247e;
+}
+
+.details-continent{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 19px;
+
+}
+
+.country-name-details{
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: white;
 }

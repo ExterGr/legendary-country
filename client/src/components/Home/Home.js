@@ -87,70 +87,76 @@ const [activity, setActivity] = useState('');
     
         return (
         <div>
-            <h1 className="home-title">Estas en el home :D</h1>
+            <h1 className="home-title">🌍 Welcome to Henry Country 🌎</h1>
             <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <label className="label" htmlFor="title">Pais: </label>
+                    <label className="country-search-label" htmlFor="title">Search country:</label>
                     <input
                     type="text"
                     id="title"
                     autoComplete="off"
+                    className="country-search-input"
                     value={title}
                     placeholder="Country name"
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <button type="submit" onClick={() => props.getCountryName(state.title)}>BUSCAR</button>
-            </form>  
-            <Link to={`/home/activity`}>
-                Agregar actividad
-            </Link>
-
-            <form action="">
-            <label htmlFor="">Order:</label>
-            <select name="select" id="populationOrder" onChange={(e)=>{setOrder(e.target.value)}}>
-                <option key='asc-order' text='' value='ASC' >Ascendent</option>
-                <option key='desc-order' text='' value='DESC'>Descendent</option>
-            </select>
-            </form>  
-
-            <form action="">
-            <label htmlFor="">By:</label>
-            <select name="select" id="populationOrder" onChange={(e)=>{setColumn(e.target.value); console.log(e)}}>
-                <option key='name-order' text='' value='name' >Name</option>
-                <option key='population-order' text='' value='population'>Population</option>
-            </select>
+                <button type="submit" className="country-search-button" onClick={() => props.getCountryName(state.title)}>Search</button>
             </form>
-
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <h6>Filtros</h6>
-                <label htmlFor="">Filter by continent:</label>
-                <select name="select" id="continent-filter" onChange={(e)=>{setContinent(e.target.value); console.log(e)}}>
-                    <option key='All-option' text='' value={[allContinents]} >All</option>
-                    <option key='Americas-option' text='' value='Americas'>Americas</option>
-                    <option key='Africa-option' text='' value='Africa'>Africa</option>
-                    <option key='Asia-option' text='' value='Asia'>Asia</option>
-                    <option key='Europe-option' text='' value='Europe'>Europe</option>
-                    <option key='Oceania-option' text='' value='Oceania'>Oceania</option>
-                    <option key='Polar-option' text='' value='Polar'>Polar</option>
-                    <option key='Undefined-option' text='' value=''>Undefined</option>
+            <nav className="mega-nav">
+                <div className="activity-add-link"> 
+                    <Link to={`/home/activity`} style={{ textDecoration: 'none' }}>
+                       <div className="activity-add-text">Add activity <b>+</b></div> 
+                    </Link>
+                </div> 
+                <form className="order-order">
+                <label htmlFor="">Order:</label>
+                <select name="select" className="order-select" onChange={(e)=>{setOrder(e.target.value)}}>
+                    <option key='asc-order' text='' value='ASC' >Ascendent</option>
+                    <option key='desc-order' text='' value='DESC'>Descendent</option>
                 </select>
-                <input
-                    type="text"
-                    id="title"
-                    autoComplete="off"
-                    value={activityName}
-                    placeholder="Activity name"
-                    onChange={(e) => handleActivity(e)}
-                    />
-                <button type="submit" onClick={() => props.getCountries(number, column, order, continent, activity.activityName)}>FILTER</button>
-            </form>      
-            <button id='previous-button' onClick={()=>{ setNumber(number - 10); handleButtons(); console.log(number - 10)}}>Previous</button>
-            <button id='next-button' onClick={()=>{ setNumber(number + 10); handleButtons(); console.log(number +10)}}>Next</button>
+                </form>  
+
+                <form className="type-order">
+                <label htmlFor="">By:</label>
+                <select name="select" className="type-select" onChange={(e)=>{setColumn(e.target.value); console.log(e)}}>
+                    <option key='name-order' text='' value='name' >Name</option>
+                    <option key='population-order' text='' value='population'>Population</option>
+                </select>
+                </form>
+
+                <form onSubmit={(e) => handleSubmit(e)} className="filter-form">
+                    <label htmlFor="">Filter by continent and activity:</label>
+                    <select name="select" className="continent-filter" onChange={(e)=>{setContinent(e.target.value); console.log(e)}}>
+                        <option key='All-option' text='' value={[allContinents]} >All</option>
+                        <option key='Americas-option' text='' value='Americas'>Americas</option>
+                        <option key='Africa-option' text='' value='Africa'>Africa</option>
+                        <option key='Asia-option' text='' value='Asia'>Asia</option>
+                        <option key='Europe-option' text='' value='Europe'>Europe</option>
+                        <option key='Oceania-option' text='' value='Oceania'>Oceania</option>
+                        <option key='Polar-option' text='' value='Polar'>Polar</option>
+                        <option key='Undefined-option' text='' value=''>Undefined</option>
+                    </select>
+                    <input
+                        type="text"
+                        id="title"
+                        autoComplete="off"
+                        className="activity-search-input"
+                        value={activityName}
+                        placeholder="Activity name"
+                        onChange={(e) => handleActivity(e)}
+                        />
+                    <button type="submit" className="activity-search-button" onClick={() => props.getCountries(number, column, order, continent, activity.activityName)}>Filter</button>
+                </form>
+            </nav> 
+            <div className="pagination-buttons">
+                <button id='previous-button' className="pagination-button" onClick={()=>{ setNumber(number - 10); handleButtons(); console.log(number - 10)}}>Previous</button>
+                <button id='next-button' className="pagination-button" onClick={()=>{ setNumber(number + 10); handleButtons(); console.log(number +10)}}>Next</button>
+            </div>     
             {handleButtons()}
-            <div>
+            <div className="country-sandbox">
                 {
-                number >=0 && number <= 250 && props.countries && props.countries.map(el => {
+                number >=0 && number <= 250 && props.countries && props.countries && props.countries.map(el => {
                     return (
                         <div key={el.name}>
                             <Country
@@ -163,8 +169,9 @@ const [activity, setActivity] = useState('');
                         </div>
                     )
                 })}
+                {/* !props.countries[0].flag && <div>No se encontro el pais che</div> */}
                 
-                {loader && <h3>Cargando . . .</h3>}
+                {/* loader && <h3>Loading . . .</h3> */}
             </div>
         </div>
         )
