@@ -7,7 +7,7 @@ function Inicio(props) {
     
     return (
         <div>
-            <a href="/home" className="initial-button" onClick={()=> props.getCountries()}>Iniciar</a>
+            <a href="/home" className="initial-button" onClick={()=> props.getCountries()}>Start</a>
             <h1 className="landing-title">Henry countries</h1>
             <img src="https://acegif.com/wp-content/uploads/Earth.gif" className="landing-image" alt=""/>
             <i className="landing-sign">By Ivan Kudacki</i>
