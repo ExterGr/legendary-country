@@ -200,6 +200,12 @@
 }
 
 .pagination-button:active{
-    background-color: #1f8c6f
+    background-color: #1f8c6f;
 }
 
+.country-sandbox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row ;
+    justify-content: space-around;
+}

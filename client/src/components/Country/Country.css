@@ -1,21 +1,29 @@
+
+
 .country-container{
     padding:5px;
     margin: 5px;
-    position: relative;
-    float: left;
-    width: 30%;
-    height: auto;
-    
-
+    width: 350px;
+    display: flex;
+    align-content:center;
+    flex-wrap: wrap;
 }
 
 .country-item{
-    display: flexbox;
     text-align: center;
-    border: steelblue solid 9px;
+    border: steelblue solid 7px;
     border-radius: 12px;
     padding-bottom: 10px;
+    width: 100%;
+    height: 320px;
 }
+
+.country-item:hover{
+    background-color: #fff3;
+
+    transition: background-color 0.5s ease-in-out;
+}
+
 
 .country-home-image{
     width: 150px;
@@ -63,4 +71,5 @@
     font-size: 25px;
     margin-bottom: 10px;
     color: white;
+    margin-top: 0px;
 }
