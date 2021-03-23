@@ -3,6 +3,19 @@
     align-content: center;
     justify-content: center;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    background-color: #012a4a;
+    margin: 0;
+    color: #fff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    user-select: none; 
+}
+
+.henry-image{
+    height: 45px;
+    width: 45px;
 }
 
 .initial-button{
@@ -41,6 +54,7 @@
     width: 350px;
     height: 350px;
     user-select: none;
+    margin-top: 15px;
 }
 
 .landing-sign {

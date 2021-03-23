@@ -8,7 +8,7 @@ function Inicio(props) {
     return (
         <div>
             <a href="/home" className="initial-button" onClick={()=> props.getCountries()}>Start</a>
-            <h1 className="landing-title">Henry countries</h1>
+            <h1 className="landing-title">Henry countries<img className="henry-image" src="https://media-exp1.licdn.com/dms/image/C4E0BAQGy6GZmHb_SXA/company-logo_200_200/0/1603651276024?e=2159024400&v=beta&t=ViXcu-TnrneSIy7d9SSO7DnGp4OCMmmJ-UhC9ifKHu4" alt=""/> </h1>
             <img src="https://acegif.com/wp-content/uploads/Earth.gif" className="landing-image" alt=""/>
             <i className="landing-sign">By Ivan Kudacki</i>
         </div>
