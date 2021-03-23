@@ -219,3 +219,22 @@
     flex-direction: row ;
     justify-content: space-around;
 }
+
+.found-error{
+    border: steelblue solid 7px;
+    border-radius: 12px;
+    text-align: center;
+
+}
+
+.found-error-info{
+    background-color:darkslateblue;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.found-error-image{
+    height: 320px;
+    width: 320px;
+}

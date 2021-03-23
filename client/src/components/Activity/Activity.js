@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState} from 'react';
 import { connect } from 'react-redux';
 import {postActivity, getCountryName} from '../../actions/index.js';
 import './Activity.css'
