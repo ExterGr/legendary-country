@@ -23,26 +23,29 @@ function Details(props) {
     //console.log(props.countryDetail)
     return (
         
-        <div>
+        <div className="details-container">
+            <a href="/home" className="details-back-button">Volver</a>
             {props.countryDetail && props.countryDetail.map(el => { //Mapeo el unico que se encuentra
                 return (
-                    <div>
-                        <div>
-                            <a href="/home" className="details-back-button">Volver</a>
-                            <h1 className="details-title">This are the details</h1>
+                    <div className="details-map-container">
+                        <div className="details-map-father">
+                            <h1 className="details-title">This are the details:</h1>
                             <div className="details-content">
                                 <h3 className="details-content-country">{props.countryDetail[0].name}</h3>
                                 <img src={`${props.countryDetail[0].flag}`} className="details-content-flag" alt="Flag"/>
-                                <h4 className="details-subtitle">Details</h4>
-                                <p className="details-content-info">Continent: {props.countryDetail[0].continent}</p>
-                                <p className="details-content-info">Subregion: {props.countryDetail[0].subregion}</p>
-                                <p className="details-content-info">Capital: {props.countryDetail[0].capital}</p>
-                                <p className="details-content-info">Population: {props.countryDetail[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                                <p className="details-content-info">Area: { props.countryDetail[0].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} km²</p>
+                                <div className="details-subtitle"><b>Details</b></div>
+                                <div className="details-content-father">
+                                    <p className="details-content-info"><b>Continent:</b> {props.countryDetail[0].continent}</p>
+                                    <p className="details-content-info"><b>Subregion:</b> {props.countryDetail[0].subregion}</p>
+                                    <p className="details-content-info"><b>Capital:</b> {props.countryDetail[0].capital}</p>
+                                    <p className="details-content-info"><b>Population:</b> {props.countryDetail[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                    <p className="details-content-info"><b>Area:</b> { props.countryDetail[0].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} km²</p>
+                                </div>
                             </div>
                         </div>
-                        <h1 className="details-activities-title">Activities:</h1>
-                            <div>
+                            <div className="activity-map-container">
+                            <h1 className="details-activities-title">Activities:</h1>
+                            <div className="details-activities-map">
                                 {props.countryDetail[0].activities && props.countryDetail[0].activities.map(act => {
                                     return (
                                         <div className="details-activities-element">
@@ -55,8 +58,9 @@ function Details(props) {
                                         </div>
                                     )
                                 })}
+                            </div>
                                 {
-                                !props.countryDetail[0].activities && <p>No hay actividades en este pais ! ! !</p>
+                                !props.countryDetail[0] && <p>No hay actividades en este pais ! ! !</p>
                                 }
                             </div>
                     </div>

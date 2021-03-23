@@ -6,7 +6,7 @@
     color: #fff;
     padding-bottom: 10px;
     padding-top: 10px;
-    
+    user-select: none;
 }
 
 .form-container{
@@ -19,6 +19,7 @@
 .country-search-label{
     color: #fff;
     font-size: 20px;
+    user-select: none;
 }
 
 .country-search-input{
@@ -46,6 +47,7 @@
     height: 20px;
     align-self: center;
     margin-left: 20px;
+    user-select: none;
 }
 
 .country-search-button:focus{
@@ -74,6 +76,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
+    user-select: none;
   
 }
 
@@ -88,6 +91,7 @@
 .activity-add-text{
     text-decoration: none;
     color: #ffffff;
+    user-select: none;
 
 }
 
@@ -97,6 +101,7 @@
     margin-bottom: 5px;
     padding: 5px;
     color: #ffffff;
+    user-select: none;
 }
 
 .order-select{
@@ -107,6 +112,7 @@
     border-radius: 9999px;
     margin-left: 5px;
     color: #fff;
+    user-select: none;
 }
 
 
@@ -116,6 +122,7 @@
     margin-bottom: 5px;
     padding: 5px;
     color: #ffffff;
+    user-select: none;
 }
 
 .type-select{
@@ -126,6 +133,7 @@
     border-radius: 9999px;
     margin-left: 5px;
     color: #fff;
+    user-select: none;
 }
 
 .filter-form{
@@ -134,6 +142,7 @@
     margin-bottom: 5px;
     padding: 5px;
     color: #ffffff;
+    user-select: none;
 }
 
 .continent-filter{
@@ -180,6 +189,7 @@
 .pagination-buttons{
     display: flex;
     justify-content: center;
+    user-select: none;
 }
 
 .pagination-button{

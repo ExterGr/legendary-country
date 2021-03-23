@@ -117,7 +117,7 @@ const countryList = []
                             return (
                                 <article>
                                     <li>{el}</li>
-                                    <button onClick={(e) => {e.preventDefault(); removeCountry(el)}}>X</button>
+                                    <button onClick={(e) => {alert('Esta funcion es premium. Son 20 dolarucos mensuales pa')}}>X</button>
                                 </article>
                             )
                         })

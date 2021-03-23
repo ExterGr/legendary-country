@@ -1,5 +1,136 @@
+.details-container{
+    display: flex;
+    justify-content: center;
+}
+
+.details-back-button{
+    text-decoration: none;
+    height: fit-content;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 9999px;
+    color: white;
+    position: fixed;
+    left: 0;
+    font-weight: bold;
+    background-color: #15ba8e;
+    user-select: none;
+}
+
+.details-back-button:hover{
+    background-color:#409e85 ;
+}
+
+.details-back-button:active{
+    background-color: #1f8c6f
+}
+
+.details-map-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.details-title{
+    display: flex;
+    align-self: center;
+    background-color: #483d8b;
+    color: white;
+    border: 6px solid #483d8b;
+    border-radius: 9000px;
+}
+
+.details-map-father{
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+}
+
+.details-content{
+    border: 6px solid #483d8b;
+    border-radius: 12px;
+    display: block;
+    
+}
+
+.details-content-country{
+    background-color: #483d8b;
+    color: white;
+    font-size: 25px;
+}
+
 .details-content-flag{
     width: 250px;
     height: 150px;
+    border: 2px solid black
 
+}
+
+.details-subtitle{
+    background-color: #483d8b;
+    color: white;
+    font-size: 18px;
+}
+
+.details-content-father{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: white;
+    background-color: darkslateblue;
+}
+
+
+.activity-map-container{
+    display: flex;
+    width: 90vw;
+    flex-direction: column;
+}
+
+.details-activities-title{
+    display: flex;
+    align-self: center;
+    background-color: #483d8b;
+    color: white;
+    border: 6px solid #483d8b;
+    border-radius: 9000px;
+    
+}
+
+.details-activities-map{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.details-activities-element{
+    border: 6px solid darkslateblue;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    background-color: darkslateblue;
+}
+
+.details-activities-name{
+    background-color: darkorchid;
+    border-radius: 12px;
+    color: white;
+    
+}
+
+.details-activities-ul{
+    background-color: darkslateblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style:circle
+}
+
+.details-activities-li{
+    background-color: darkslateblue;
 }
