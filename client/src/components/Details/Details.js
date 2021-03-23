@@ -62,7 +62,7 @@ function Details(props) {
                                 {
                                 props.countryDetail[0].activities.length === 0 && (
                                         <div className="empty-activity-content">
-                                            <div className="empty-activity-text">There are not activities in this country ! ! !</div>
+                                            <div className="empty-activity-text">There are no activities in this country ! ! !</div>
                                         </div>
                                 )
                                 }

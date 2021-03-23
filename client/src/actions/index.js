@@ -14,7 +14,7 @@ export function getCountries(number, column, order, continent, activity) {
       return dispatch({ type: "GET_COUNTRIES", payload: json.data });
     };
   }
-export function getCountryDetail (id){ //Trae el detalle de la pelicula
+export function getCountryDetail (id){
     return async function(dispatch) {
         var json = await axios("http://localhost:3001/countries/" + id)
         
@@ -23,7 +23,7 @@ export function getCountryDetail (id){ //Trae el detalle de la pelicula
     };
 }
 
-export function getCountryName (name){ //Trae el detalle de la pelicula
+export function getCountryName (name){ 
   return async function(dispatch) {
       var json = await axios("http://localhost:3001/countries?name=" + name)
       
@@ -32,7 +32,7 @@ export function getCountryName (name){ //Trae el detalle de la pelicula
   };
 }
 
-export function postActivity (name, difficulty, duration, season, countriesList){ //Trae el detalle de la pelicula
+export function postActivity (name, difficulty, duration, season, countriesList){ 
   return async function(dispatch) {
       var json = await axios.post("http://localhost:3001/activity", {
         name,
