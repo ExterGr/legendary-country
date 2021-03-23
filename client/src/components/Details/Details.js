@@ -24,7 +24,7 @@ function Details(props) {
     return (
         
         <div className="details-container">
-            <a href="/home" className="details-back-button">Volver</a>
+            <a href="/home" className="details-back-button">Back to home</a>
             {props.countryDetail && props.countryDetail.map(el => { //Mapeo el unico que se encuentra
                 return (
                     <div className="details-map-container">
@@ -60,7 +60,7 @@ function Details(props) {
                                 })}
                             </div>
                                 {
-                                !props.countryDetail[0] && <p>No hay actividades en este pais ! ! !</p>
+                                !props.countryDetail[0] && <h4>There are not activities in this country ! ! !</h4>
                                 }
                             </div>
                     </div>

@@ -1,0 +1,118 @@
+.activity-form-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.activity-form-father{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.activity-h1{
+    display: flex;
+    align-self: center;
+    background-color: #483d8b;
+    color: white;
+    border: 6px solid #483d8b;
+    border-radius: 9000px;
+    padding: 0 15px;
+    user-select: none;
+}
+
+.general-form{
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: #483d8b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-self: center;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.activity-input {
+    color: black;
+    border: none;
+    border-bottom: 2px solid #fff;
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #483d8b;
+}
+
+.activity-input:focus{
+    outline: none;
+    background-color: #fff4;
+}
+
+.selected-country-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.selected-country-flag{
+    height: 15px;
+    width: 25px;
+}
+
+.selected-country-x{
+    display: flex;
+    color: #ffffff;
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-content: center;
+    padding: 2px;
+    
+}
+
+.selected-country-x:hover{
+    background-color: rgb(216, 96, 96);
+    cursor: pointer;
+}
+
+.activity-search-country-button{
+    background-color: rgb(65, 187, 35);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 5px;
+}
+
+.activity-search-country-button:hover{
+    cursor: pointer;
+    background-color: rgb(97, 232, 63);
+}
+
+.activity-search-country-button:focus{
+    outline: none;
+    background-color: rgb(14, 174, 14);
+}
+
+.post-activity-button{
+    width: 100%;
+    background-color: rgb(65, 187, 35);
+    margin-bottom: -8px;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+}
+
+.post-activity-button:hover{
+    cursor: pointer;
+    background-color: rgb(97, 232, 63);
+}
+
+.post-activity-button:focus{
+    outline: none;
+    background-color: rgb(14, 174, 14);
+}
