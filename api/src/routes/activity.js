@@ -11,15 +11,15 @@ router.post('/', async function(req, res) {
     let {name, difficulty, duration, season, countriesList } = req.body
 
     
-    console.log(countriesList)
+    //console.log(countriesList)
 
     if (!Array.isArray(countriesList)) {
         countriesList = [countriesList];
     }
-    if(countriesList.length > 1){
+    if(countriesList.length){
         countriesList= countriesList.map(el => el.id)
     }
-    console.log(countriesList)
+    //console.log(countriesList)
 
     const addCountry = await Country.findAll({
         where: {
