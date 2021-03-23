@@ -157,7 +157,6 @@ const [activity, setActivity] = useState('');
             <div className="country-sandbox">
                 {
                 number >=0 && number <= 250 && props.countries && props.countries.map(el => {
-                    console.log(el);
                     if(el.id){
                         return (
                             <div key={el.name}>

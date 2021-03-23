@@ -134,3 +134,18 @@
 .details-activities-li{
     background-color: darkslateblue;
 }
+
+.empty-activity-content{
+    border: 6px solid white;
+    border-radius: 12px;
+    text-align: center;
+    background-color: rebeccapurple;
+    padding: 5px;
+    margin: 10px;
+}
+
+.empty-activity-text{
+    font-weight: bold;
+    color: white;
+    font-size: 22px;
+}

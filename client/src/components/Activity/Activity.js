@@ -127,7 +127,7 @@ const countryList = []
                             })
                         }
                     </ul>
-                    <input className="post-activity-button" value="Create" type="submit" onClick={() => props.postActivity(name, difficulty, duration, season, countriesList)}/> 
+                    <input className="post-activity-button" value="Create" type="submit" onClick={() => {props.postActivity(name, difficulty, duration, season, countriesList); alert('Activity succesfully added!')}}/> 
                 </form>
             </div>
         </div>
