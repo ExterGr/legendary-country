@@ -158,23 +158,31 @@ const [activity, setActivity] = useState('');
                 {
                 number >=0 && number <= 250 && props.countries && props.countries.map(el => {
                     console.log(el);
-                    return (
-                        <div key={el.name}>
-                            <Country
-                            name={el.name}
-                            flag={el.flag}
-                            continent={el.continent}
-                            id={el.id}
-                            key={el.name}
-                            />
-                        </div>
-                    )
+                    if(el.id){
+                        return (
+                            <div key={el.name}>
+                                <Country
+                                name={el.name}
+                                flag={el.flag}
+                                continent={el.continent}
+                                id={el.id}
+                                key={el.name}
+                                />
+                            </div>
+                        )
+                    }
                 })}
-                { props.countries[0].err &&
-                <div key="found-error" className="found-error">
-                    <div className="found-error-info">The country was not found!</div>
-                    <img src="https://pbs.twimg.com/media/De2TM0yXkAA2lUW.jpg" className="found-error-image" alt=""/>
-                </div> }
+                { props.countries && props.countries.map(el => {
+                    if(el.err){
+                        return (
+                        <div key="found-error" className="found-error">
+                            <div className="found-error-info">The country was not found!</div>
+                            <img src="https://pbs.twimg.com/media/De2TM0yXkAA2lUW.jpg" className="found-error-image" alt=""/>
+                        </div>
+                        )
+                    }
+                })
+                 }
                 
                 {/* loader && <h3>Loading . . .</h3> */}
             </div>

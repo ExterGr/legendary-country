@@ -224,7 +224,7 @@
     border: steelblue solid 7px;
     border-radius: 12px;
     text-align: center;
-
+    user-select: none;
 }
 
 .found-error-info{
