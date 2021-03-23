@@ -238,3 +238,26 @@
     height: 320px;
     width: 320px;
 }
+
+.found-error-reload-button{
+    display: flex;
+    text-decoration: none;
+    height: fit-content;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 9999px;
+    color: white;
+    font-weight: bold;
+    background-color: #15ba8e;
+    user-select: none;
+    width: fit-content;
+    margin: auto;
+}
+
+.found-error-reload-button:hover{
+    background-color:#409e85 ;
+}
+
+.found-error-reload-button:focus{
+    background-color: #1f8c6f
+}

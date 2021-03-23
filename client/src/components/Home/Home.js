@@ -175,9 +175,12 @@ const [activity, setActivity] = useState('');
                 { props.countries && props.countries.map(el => {
                     if(el.err){
                         return (
-                        <div key="found-error" className="found-error">
-                            <div className="found-error-info">The country was not found!</div>
-                            <img src="https://pbs.twimg.com/media/De2TM0yXkAA2lUW.jpg" className="found-error-image" alt=""/>
+                        <div>
+                            <div key="found-error" className="found-error">
+                                <div className="found-error-info">The country was not found!</div>
+                                <img src="https://pbs.twimg.com/media/De2TM0yXkAA2lUW.jpg" className="found-error-image" alt=""/>
+                            </div>
+                                <a href="/home" className="found-error-reload-button">Reload page</a>
                         </div>
                         )
                     }

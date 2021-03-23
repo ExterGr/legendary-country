@@ -80,6 +80,12 @@
     cursor: pointer;
 }
 
+.selected-country-x:focus{
+    border:none;
+    outline: none;
+    background-color: rgb(189, 1, 1);
+}
+
 .activity-search-country-button{
     background-color: rgb(65, 187, 35);
     color: white;
